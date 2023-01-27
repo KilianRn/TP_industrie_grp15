@@ -5,3 +5,7 @@
   * PTIT HADDAD Raphaël <br> 
   * RANNOU Kilian <br>
   * SY Moustapha  </U> </b>
+
+<b>  <U> Arduino IDE : </U> </b>
+
+![](pictures/PP-game.png)
