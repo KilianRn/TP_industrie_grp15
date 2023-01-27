@@ -1,7 +1,7 @@
 # TP_industrie_4.0_grp15
 <b> <U> 
-  Étudiants: <br>
-  Florian Morin <br>
-  Raphael Ptit-Haddad <br> 
-  Kilian Rannou <br>
-  Moustapha Sy  </U> </b>
+  ## Étudiants: <br>
+  * MORIN Florian <br>
+  * PTIT HADDAD Raphaël <br> 
+  * RANNOU Kilian <br>
+  * SY Moustapha  </U> </b>
