@@ -1,0 +1,306 @@
+[
+    {
+        "id": "a878fc70eb6175cd",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ca4d5525fb504f2b",
+        "type": "link in",
+        "z": "a878fc70eb6175cd",
+        "name": "link in 1",
+        "links": [],
+        "x": 95,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9913e38cb5b4e2f3",
+        "type": "mqtt in",
+        "z": "a878fc70eb6175cd",
+        "name": "tp",
+        "topic": "ESIEA/grp15",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "ea4fecba3625bfb6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 340,
+        "wires": [
+            [
+                "89ef180feabbc957"
+            ]
+        ]
+    },
+    {
+        "id": "2cc873ffe589aca9",
+        "type": "debug",
+        "z": "a878fc70eb6175cd",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "e843209db194d6aa",
+        "type": "file in",
+        "z": "a878fc70eb6175cd",
+        "name": "",
+        "filename": "C:\\Users\\Flor1\\OneDrive\\Documents\\Industrie.txt",
+        "filenameType": "str",
+        "format": "lines",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": true,
+        "x": 530,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "032bdb7058270aea",
+        "type": "inject",
+        "z": "a878fc70eb6175cd",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 240,
+        "y": 500,
+        "wires": [
+            [
+                "e843209db194d6aa"
+            ]
+        ]
+    },
+    {
+        "id": "6302cf3cbc2802f6",
+        "type": "json",
+        "z": "a878fc70eb6175cd",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 330,
+        "y": 340,
+        "wires": [
+            [
+                "0d3674a18f52e154"
+            ]
+        ]
+    },
+    {
+        "id": "0d3674a18f52e154",
+        "type": "function",
+        "z": "a878fc70eb6175cd",
+        "name": "function 1",
+        "func": "var test=Object.entries(msg.payload)\nmsg.payload = []\nvar metrics = []\nfor (var ele in test) {\n    metrics.push(\n        {\n            \"name\": test[ele][0],\n            \"alias\": 1,\n            \"datatype\": 12,\n            \"floatValue\": test[ele][1]\n        }\n    )\n    msg.payload.push({ metrics})\n}\nmsg.payload = { metrics: metrics, \"seq\": 0 }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 340,
+        "wires": [
+            [
+                "5e133b5419d5e986",
+                "1d2ae4de395b2370"
+            ]
+        ]
+    },
+    {
+        "id": "f05cd39184f9b4c9",
+        "type": "debug",
+        "z": "a878fc70eb6175cd",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "5e133b5419d5e986",
+        "type": "encode",
+        "z": "a878fc70eb6175cd",
+        "name": "",
+        "protofile": "c3065eb3fbe3a2d2",
+        "protoType": "Payload",
+        "x": 640,
+        "y": 400,
+        "wires": [
+            [
+                "eba06e1458860f87"
+            ]
+        ]
+    },
+    {
+        "id": "eba06e1458860f87",
+        "type": "decode",
+        "z": "a878fc70eb6175cd",
+        "name": "",
+        "protofile": "c3065eb3fbe3a2d2",
+        "protoType": "Payload",
+        "x": 760,
+        "y": 400,
+        "wires": [
+            [
+                "2cc873ffe589aca9"
+            ]
+        ]
+    },
+    {
+        "id": "1d2ae4de395b2370",
+        "type": "json",
+        "z": "a878fc70eb6175cd",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 570,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b2d40801e5385413",
+        "type": "debug",
+        "z": "a878fc70eb6175cd",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "a1f5be8ee8cfc196",
+        "type": "debug",
+        "z": "a878fc70eb6175cd",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "89ef180feabbc957",
+        "type": "function",
+        "z": "a878fc70eb6175cd",
+        "name": "function 2",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 180,
+        "y": 240,
+        "wires": [
+            [
+                "6302cf3cbc2802f6"
+            ]
+        ]
+    },
+    {
+        "id": "7f135041ce6f12c7",
+        "type": "debug",
+        "z": "a878fc70eb6175cd",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 260,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "ea4fecba3625bfb6",
+        "type": "mqtt-broker",
+        "name": "TP",
+        "broker": "10.8.128.250",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "c3065eb3fbe3a2d2",
+        "type": "protobuf-file",
+        "protopath": "C:\\Users\\Flor1\\OneDrive\\Documents\\type.proto",
+        "watchFile": true,
+        "keepCase": false
+    }
+]
