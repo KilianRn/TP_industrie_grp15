@@ -8,4 +8,4 @@
 
 <b>  <U> Arduino IDE : </U> </b>
 
-![](pictures/Arduino IDE Temp x Hygro.png)
+![](pictures/Arduino-IDE.png)
