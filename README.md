@@ -2,6 +2,6 @@
 <b> <U> 
   Étudiants: <br>
   Florian Morin <br>
-  Raphael Ptit-Hadddad <br> 
+  Raphael Ptit-Haddad <br> 
   Kilian Rannou <br>
-  Moustapha SY  </U> </b>
+  Moustapha Sy  </U> </b>
