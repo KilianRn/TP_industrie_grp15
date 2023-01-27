@@ -1,6 +1,6 @@
 # TP_industrie_4.0_grp15
 <b> <U> 
-  Étudiants: 
+  Étudiants: <br>
   Florian Morin <br>
   Raphael Ptit-Hadddad <br> 
   Kilian Rannou <br>
