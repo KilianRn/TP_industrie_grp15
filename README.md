@@ -1,4 +1,4 @@
-# TP_industrie_4.0_grp15
+# Rapport TP_industrie_4.0_grp15
 <b> <U> 
   ## Étudiants: <br>
   * MORIN Florian <br>
